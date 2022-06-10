@@ -3,39 +3,40 @@ import * as c from "./common";
 
 export function changeDoneMarkerChildBlocks(doc) {
     (async () => {
-        let currentPage = await logseq.Editor.getCurrentPage();
-        if (!currentPage.name) {
-            currentPage = await logseq.Editor.getPage(currentPage.page.id);
-        }
-        if (!currentPage) {
-            console.warn("Couldn't find current page");
-        }
-        let currentPageName = currentPage.name;
+        try {
+            let currentPage = await logseq.Editor.getCurrentPage();
+            if (!currentPage) return;
+            if (currentPage.name) {
+                currentPage = await logseq.Editor.getPage(currentPage.page.id);
+            }
+            let currentPageName = currentPage.name;
+            if (!currentPageName) return;
 
-        let queryResult = await logseq.DB.datascriptQuery(`
+            let queryResult = await logseq.DB.datascriptQuery(`
             [:find (pull ?b [*])
             :where
                 [?b :block/page ?p]
                 [?p :block/name "${currentPageName}"]
                 [?b :block/parent ?h]
                 [?h :block/marker "DONE"]]`
-        );
-        queryResult.forEach((b) => {
-            let uuid = b[0].uuid.$uuid$;
-            let blockEl = doc.querySelector(`[blockid="${uuid}"]`);
-            let inlineChilds = c.findAllChildByClass(blockEl, "inline");
-            inlineChilds.forEach((ic) => {
-                if (ic && !ic.classList.contains("done")) {
-                    ic.classList.add("done");
-                }
+            );
+            queryResult.forEach((b) => {
+                let uuid = b[0].uuid.$uuid$;
+                let blockEl = doc.querySelector(`[blockid="${uuid}"]`);
+                let inlineChilds = c.findAllChildByClass(blockEl, "inline");
+                inlineChilds.forEach((ic) => {
+                    if (ic && !ic.classList.contains("done")) {
+                        ic.classList.add("done");
+                    }
+                });
+                let blockBodies = c.findAllChildByClass(blockEl, "block-body");
+                blockBodies.forEach((bb) => {
+                    if (bb && !bb.classList.contains("done")) {
+                        bb.classList.add("done");
+                    }
+                });
             });
-            let blockBodies = c.findAllChildByClass(blockEl, "block-body");
-            blockBodies.forEach((bb) => {
-                if (bb && !bb.classList.contains("done")) {
-                    bb.classList.add("done");
-                }
-            });
-        });
+        } catch (err) { }
     })();
 }
 
@@ -61,7 +62,7 @@ function _updateExcalidrawBlock(doc, ex) {
     graphPath = graphPath.replaceAll("logseq_local_", "");
 
     //let parentBlock = await logseq.Editor.getBlock(parentBlockId);
-    let parentBlock = parent.window.logseq.api.get_block(parentBlockId); 
+    let parentBlock = parent.window.logseq.api.get_block(parentBlockId);
     if (!parentBlock) return;
     let blockContent = parentBlock.content;
     if (blockContent) {
