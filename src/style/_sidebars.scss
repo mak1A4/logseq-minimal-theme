@@ -1,0 +1,15 @@
+/* right sidebar */
+.cp__right-sidebar {
+  .sidebar-item-list {
+    background-color: var(--ls-secondary-background-color);
+    .sidebar-item {
+      box-shadow: none !important;
+      background-color: var(--ls-secondary-background-color);
+      border-bottom: 2px solid var(--color-level-3);
+    }
+  }
+}
+/* left sidebar */
+.new-page {
+    display: none;
+}

@@ -1,0 +1,39 @@
+{
+    "name": "logseq-minimal-theme",
+    "author": "mak1A4",
+    "version": "0.0.1",
+    "description": "A minimal theme for logseq",
+    "main": "dist/index.html",
+    "targets": {
+        "main": false
+    },
+    "logseq": {
+        "title": "Minimal Theme",
+        "id": "mak1A4_minimal_theme",
+        "icon": "./logo.png",
+        "themes": [
+            {
+                "name": "Minimal Theme",
+                "url": "./dist/theme.css"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mak1A4/logseq-minimal-theme.git"
+    },
+    "scripts": {
+        "build_js": "parcel build --no-source-maps src/index.html --public-url ./",
+        "build_js_dev": "parcel build --no-source-maps --no-optimize src/index.html --public-url ./",
+        "build_css": "npx sass src/style/main.scss dist/theme.css --no-source-map && cp -r src/assets/ dist/assets",
+        "build_dev": "rm -rf dist/* && npm run build_css && npm run build_js_dev",
+        "build": "rm -rf dist/* && npm run build_css && npm run build_js"
+    },
+    "devDependencies": {
+        "parcel": "^2.6.0",
+        "sass": "^1.35.1"
+    },
+    "dependencies": {
+        "@logseq/libs": "^0.0.6"
+    }
+}

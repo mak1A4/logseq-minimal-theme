@@ -1,0 +1,85 @@
+:root {
+  --ls-page-inline-code-bg-color: rgba(255, 255, 255, 0.2);
+}
+/* === Inline code === */
+:not(pre) > code {
+  padding: 2px 5px !important;
+}
+
+/* === Code Calc result position fix === */
+.extensions__code-calc {
+  top: 11px;
+  padding: 0 0.75em;
+}
+
+.CodeMirror {
+  font-family: "Fira Code", monospace;
+  line-height: 1.2;
+  background: var(--ls-secondary-background-color);
+}
+
+.CodeMirror-hscrollbar {
+  cursor: default;
+}
+
+.cm-s-solarized.cm-s-dark,
+.cm-s-solarized.cm-s-light {
+  color: var(--ls-primary-text-color);
+  background-color: var(--ls-primary-background-color);
+  border: 7px solid var(--ls-secondary-background-color);
+  text-shadow: none;
+}
+.CodeMirror-gutters {
+  background-color: #f7f7f7;
+}
+.cm-s-solarized.cm-s-dark .CodeMirror-gutters {
+  background-color: rgba(40, 42, 51, 0.5);
+}
+.cm-s-solarized.cm-s-light .CodeMirror-gutters {
+  background-color: rgba(237, 237, 237, 0.5);
+}
+
+.CodeMirror pre.CodeMirror-line {
+  line-height: 18px;
+}
+
+.CodeMirror-linenumber {
+  display: none;
+}
+
+.CodeMirror-gutter .CodeMirror-linenumbers {
+    width: 0px;
+}
+
+.extensions__code-lang {
+  background: var(--ls-secondary-background-color);
+  display: none;
+}
+
+.extensions__code .code-editor {
+  margin-top: 0;
+}
+
+.cm-s-solarized.cm-s-dark div.CodeMirror-selected {
+  background: var(--cm-selection-background-color);
+}
+.cm-s-solarized.cm-s-light div.CodeMirror-selected {
+  background: var(--cm-selection-background-color);
+}
+
+.CodeMirror-selected {
+  background: var(--cm-selection-background-color);
+}
+.CodeMirror-focused .CodeMirror-selected {
+  background: var(--cm-selection-background-color);
+}
+.copy-button {
+    top: 16px !important;
+    right: -28px !important;
+    border-radius: 2px !important;
+    padding: .20rem !important;
+}
+
+a.copy-button[data-on-click="copy_code_inlineBlock"] {
+    padding: 0px !important;
+}

@@ -1,0 +1,15 @@
+.block-children-left-border:hover {
+    background-color: var(--color-level-3);
+}
+.bracket {
+    color: var(--ct-primary-color) !important;
+}
+.custom-query {
+    margin-top: 0px !important;
+}
+.custom-query > div.flex > div.content > div.foldable-title > div.flex-row > a.block-control {
+    margin-left: -46px !important;
+}
+.custom-query > div.flex > div.content > div.foldable-title > div.flex-row > div.custom-query-title {
+    margin-left: 17px !important;
+}

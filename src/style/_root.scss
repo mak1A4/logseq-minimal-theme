@@ -1,0 +1,82 @@
+:root {
+  --ct-background: var(--ls-primary-background-color);
+  --ct-page-font-color: var(--ls-primary-text-color);
+  --ls-scrollbar-width: 0px;
+}
+
+:root.is-mac.is-electron {
+  --ct-header-height: 48px;
+}
+
+::selection {
+  background: var(--ct-primary-color);
+  color: var(--ls-selection-color);
+}
+
+/* Fix iphone issues */
+html.is-native-iphone #left-sidebar {
+  top: 0 !important;
+}
+
+/* Journal page is too long for empty journals */
+#journals .journal-item:first-child {
+  min-height: fit-content;
+}
+
+/* Application header */
+.cp__header {
+  background: var(--ct-header-bg-color);
+}
+.cp__right-sidebar-topbar {
+  background: var(--ls-secondary-background-color);
+}
+
+.cp__header::after,
+.cp__right-sidebar-topbar::after {
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: 1;
+  position: absolute;
+  top: 100%;
+  background-color: rgba(0, 0, 0, 0.16);
+  display: block;
+  content: "";
+}
+
+.cp__header.electron-mac {
+  height: var(--ct-header-height);
+}
+
+#search {
+  padding: 0;
+  align-self: stretch;
+}
+
+#search > .inner {
+  display: flex;
+  align-items: center;
+}
+
+#repo-switch {
+  white-space: nowrap;
+}
+
+#repo-name {
+  max-width: 150px;
+}
+
+.cp__right-sidebar-settings a {
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.absolute-modal > div.black {
+    border: 3px solid var(--ct-secondary-color);
+}
+
+.ls-page-title {
+    color: var(--ls-page-title-color) !important;
+}
