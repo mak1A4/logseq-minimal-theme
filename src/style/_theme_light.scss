@@ -15,10 +15,14 @@ html[data-theme="white"] {
   --color-level-5: #aaaeb4;
   --color-level-6: #9da2a8;
 
+  --cm-one-liner-color: #773f6e;
+  --cm-one-liner-bg: #dee2e6;
+
   --ls-primary-background-color: #ffffff;
   --ls-secondary-background-color: var(--color-level-1);
   --ls-tertiary-background-color: var(--color-level-2);
   --ls-quaternary-background-color: var(--color-level-3);
+  --ls-modal-border-color: var(--color-level-4);
   --ls-border-color: var(--ls-tertiary-background-color);
   --ls-table-tr-even-background-color: var(--ls-secondary-background-color);
   --ls-primary-text-color: rgb(40, 40, 40);
@@ -35,6 +39,7 @@ html[data-theme="white"] {
   --ls-active-secondary-color: var(--ct-secondary-color);
   --ls-external-link-color: var(--ct-secondary-color);
 
+  --ls-guideline-color-hover: var(--color-level-3);
   --ls-guideline-color: var(--ls-tertiary-background-color);
   --ls-block-bullet-color: #b2ccdf;
   --ls-bullet-closed-color: var(--ls-secondary-text-color);

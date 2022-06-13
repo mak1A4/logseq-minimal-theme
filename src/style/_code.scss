@@ -83,3 +83,11 @@
 a.copy-button[data-on-click="copy_code_inlineBlock"] {
     padding: 0px !important;
 }
+a.copy-button[data-on-click="copy_code_inlineBlock"]:hover {
+    background-color: var(--cm-one-liner-bg) !important;
+}
+.content :not(pre)>code {
+    font-family: "Fira Code",monospace;
+    background-color: var(--cm-one-liner-bg);
+    color: var(--cm-one-liner-color);
+}

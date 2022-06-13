@@ -73,8 +73,16 @@ html.is-native-iphone #left-sidebar {
   }
 }
 
-.absolute-modal > div.black {
-    border: 3px solid var(--ct-secondary-color);
+.dropdown-wrapper {
+    border: 2px solid var(--ls-modal-border-color);
+}
+
+.ui__modal-panel {
+    border: 2px solid var(--ls-modal-border-color);
+}
+
+.absolute-modal {
+    border: 2px solid var(--ls-modal-border-color);
 }
 
 .ls-page-title {
