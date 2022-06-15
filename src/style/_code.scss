@@ -51,9 +51,17 @@
     width: 0px;
 }
 
+.CodeMirror-scroll {
+    padding-top: 28px;
+    padding-bottom: 45px;
+}
+
 .extensions__code-lang {
   background: var(--ls-secondary-background-color);
-  display: none;
+  right: 668px;
+  font-size: 14pt;
+  padding: 6px;
+  display: none; //doesn't work right in linked references
 }
 
 .extensions__code .code-editor {
@@ -74,8 +82,8 @@
   background: var(--cm-selection-background-color);
 }
 .copy-button {
-    top: 16px !important;
-    right: -28px !important;
+    top: 23px !important;
+    right: 7px !important;
     border-radius: 2px !important;
     padding: .20rem !important;
 }

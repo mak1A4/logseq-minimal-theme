@@ -1,0 +1,26 @@
+/* Popups */
+.tippy-tooltip {
+  color: var(--ct-page-font-color);
+}
+
+.tippy-tooltip > .tippy-tooltip-content {
+  border: 2px solid var(--ls-modal-border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ls-primary-background-color);
+}
+
+.tippy-wrapper,
+.tippy-tooltip {
+  background: transparent;
+  font-weight: unset !important;
+}
+
+.tippy-popper .arrow-regular {
+  display: none;
+}
+
+/* FIXME: this is a hack to remove scroll passed to scroll bottom issue */
+.tippy-popper[style*="visibility: hidden"] {
+  display: none;
+}

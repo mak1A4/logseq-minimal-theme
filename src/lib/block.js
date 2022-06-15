@@ -43,18 +43,24 @@ export function changeDoneMarkerChildBlocks(doc) {
 function _updateExcalidrawBlock(doc, ex) {
     let fel = ex.parentNode.parentNode.parentNode.parentNode.parentNode.children[1];
     if (fel) return;
-
-    let parentBlockEl = c.findParentNode(ex, (e) => {
-        let blockId = e.getAttribute("blockid");
-        return blockId !== "" && blockId !== null && blockId !== undefined;
+    /*let externalLinkFound = c.findParentNode(ex, (p) => {
+        return c.findAllChildByClass(p, "external-link").length > 0;
     });
-    if (!parentBlockEl) return;
-    let parentBlockId = parentBlockEl.getAttribute("blockid");
+    if (externalLinkFound) return;*/
     doc.querySelectorAll(".draw").forEach((d) => {
         d.parentNode.style.display = "none";
         d.style.display = "none";
     });
-
+    
+    let parentBlockEl = c.findParentNode(ex, (e) => {
+        let blockId = e.getAttribute("blockid");
+        return blockId !== "" && blockId !== null && blockId !== undefined;
+    });
+    console.log("parentBlockEl");
+    console.log(parentBlockEl);
+    if (!parentBlockEl) return;
+    let parentBlockId = parentBlockEl.getAttribute("blockid");
+    console.warn("parentBlockId: " + parentBlockId);
     //let graphPathObj = await logseq.App.getCurrentGraph();
     //let graphPath = graphPathObj.path.toString();
     let graphPath = parent.window.logseq.api.get_user_configs().currentGraph.replaceAll("logseq_local_", "");
@@ -63,6 +69,9 @@ function _updateExcalidrawBlock(doc, ex) {
 
     //let parentBlock = await logseq.Editor.getBlock(parentBlockId);
     let parentBlock = parent.window.logseq.api.get_block(parentBlockId);
+    let parentBlockNode = doc.querySelector("div[blockid='" + parentBlock.uuid + "']")
+    console.log("parentBlockNode: " + parentBlockNode);
+    console.log(parentBlockNode);
     if (!parentBlock) return;
     let blockContent = parentBlock.content;
     if (blockContent) {
@@ -80,20 +89,11 @@ function _updateExcalidrawBlock(doc, ex) {
         else excaliLink.text = drawPath;
         excaliLink.target = "_blank";
         excaliLink.classList.add("external-link");
-        try {
-            let elm = ex;
-            /*let pnode = findParentNode(elm, (e) => {
-                if (e.className.toString() == "flex-1") {
-                    return e.children[1].className == "external-link";
-                }
-                return false;
-            });
-            pnode.appendChild(excaliLink);*/
-            let foundExtLink = elm.parentNode.parentNode.parentNode.parentNode.parentNode.children[1];
-            if (!foundExtLink) {
-                elm.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(excaliLink);
-            }
-        } catch (err) { }
+        let drawNode = parentBlockNode.querySelector(".draw");
+        if (drawNode && drawNode.parentNode.parentNode) {
+            let flexOneParent = drawNode.parentNode.parentNode; //flex-1
+            flexOneParent.appendChild(excaliLink);
+        }
     }
 }
 

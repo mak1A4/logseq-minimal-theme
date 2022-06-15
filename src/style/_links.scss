@@ -1,9 +1,16 @@
+/*a:not(.button) {
+    color: var(--ls-link-text-color);
+}
+a:not(.button):hover {
+    color: var(--ls-link-text-hover-color);
+}*/
 /* === External Links === */
 a.external-link {
+  color: var(--ls-external-link-color);
   border-bottom: 0px;
 }
 a.external-link:after {
-  background-color: var(--ls-link-text-color);
+  background-color: var(--ls-external-link-color);
   bottom: -2px;
   content: "";
   display: inline-block;
@@ -23,7 +30,9 @@ a.external-link:after {
   transition: 0.3s;
   width: 14px;
 }
-
+a.external-link:hover {
+  color: var(--ls-external-link-hover-color);
+}
 a.external-link:hover:after {
-  background-color: var(--ls-link-text-hover-color);
+  background-color: var(--ls-external-link-hover-color);
 }

@@ -88,3 +88,26 @@ html.is-native-iphone #left-sidebar {
 .ls-page-title {
     color: var(--ls-page-title-color) !important;
 }
+
+#journals .journal-item {
+    border-top-color: var(--ls-journal-border-color,#738694);
+}
+
+a.button {
+    color: #c5cdd7;
+}
+a.button:hover {
+    color: #c5cdd7;
+}
+a.favorite-item {
+    color: var(--ct-primary-color);
+}
+a.favorite-item:hover {
+    color: var(--ct-secondary-color);
+}
+a.recent-item {
+    color: var(--ct-primary-color);
+}
+a.recent-item:hover {
+    color: var(--ct-secondary-color);
+}

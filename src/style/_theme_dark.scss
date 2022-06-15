@@ -16,7 +16,6 @@ html[data-theme="dark"] {
   --color-level-4: #525f6b;
   --color-level-5: #606e7a;
   --color-level-6: #697885;
-
   
   --cm-one-liner-color: #db89cd;
   --cm-one-liner-bg: #313942;
@@ -25,11 +24,12 @@ html[data-theme="dark"] {
   --ls-page-title-color: #10a96c;
   --ls-primary-background-color: #272c35;
   --ls-secondary-background-color: var(--color-level-1);
-  --ls-tertiary-background-color: var(--color-level-2);
+  --ls-tertiary-background-color: #2f5376; //var(--color-level-2);
   --ls-quaternary-background-color: var(--color-level-3);
 
   --ls-modal-border-color: var(--ct-secondary-color);
   --ls-border-color: var(--ls-tertiary-background-color);
+  --ls-journal-border-color: var(--color-level-4);
 
   --ls-table-tr-even-background-color: var(--ls-secondary-background-color);
 
@@ -38,13 +38,14 @@ html[data-theme="dark"] {
 
   --ct-bold-color: #fff;
 
-  --ls-link-text-color: var(--ct-primary-color);
-  --ls-link-ref-text-color: var(--ct-primary-color);
-  --ls-link-ref-text-hover-color: var(--ct-secondary-color);
+  --ls-link-text-color: #7C9473;
+  --ls-link-ref-text-color: #349B90;
+  --ls-link-ref-text-hover-color: #3ab7aa;
 
   --ls-active-primary-color: var(--ct-primary-color);
   --ls-active-secondary-color: var(--ct-secondary-color);
-  --ls-external-link-color: var(--ct-secondary-color);
+  --ls-external-link-color: #ae9bc4;
+  --ls-external-link-hover-color: #ceb7ea;
 
   --ls-guideline-color-hover: var(--color-level-3);
   --ls-guideline-color: var(--color-level-4);
